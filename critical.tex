@@ -1,0 +1,46 @@
+\subsection{The crossover for recovering the direction of the drive}
+For $c\geq0$ and a phase law $v$, let $J_c(v)$ denote the following two-dimensional probability law. Draw $s\sim v$, draw an independent standard normal $Z_0$, and report
+\begin{equation}
+ \left(q(s),\ Z_0+\frac{c^{3/2}q'(s)}{\sqrt{12}\,q(s)^2}\right).
+ \label{eq:criticalchannel}
+\end{equation}
+The normalisation also follows from the classical Poisson calculation for sensing a concentration ramp. The slope variance in Mora and Wingreen, Eq.~(9) and the perfect-absorber case \cite{mora}, has the form $12x^2/(m t^2)$. Substituting the local duration $t\simeq m/(Rx)$ gives the signal scale $|q^{\prime}|m^{3/2}/(\sqrt{12}Rx^2)$. Here we determine the relative entropy of two mixtures over the unknown phase branches in a record stopped after a fixed number of events. The first coordinate locates the instantaneous rate. Conditional on that rate, the second coordinate has one of two possible means, according to whether the rate is increasing or decreasing.
+
+\begin{theorem}\label{th:critical}
+If $m\to\infty$ and $m/R^{2/3}\to c\in[0,\infty)$, then
+\[
+ \KL(P_m^\F\|\Theta P_m^\B)\longrightarrow
+ \KL(J_c(\eta)\|J_c(\xi)).
+\]
+At $c=0$ the limit equals $D_q$ of Corollary~\ref{cor:subcritical}. As $c\to\infty$ it increases to $\KL(\eta\|\xi)=1-\sqrt{17}/5$.
+\end{theorem}
+\begin{proof}
+Use the Poisson experiment in Lemma~\ref{lem:reduction}. Denote its arrival times by $T_j$, its duration by $t=T_m$ and its midpoint phase by $v=s+t/2$ modulo one. Consider the augmented observation that includes $x=q(v)$. Except for two endpoints of zero prior measure, $x$ admits two midpoint phases $v_+,v_-$ having $q'(v_+)>0$ and $v_-=-v_+$ modulo one. Write $f(v)$ for the density of either prior.
+
+Given the starting phase, $G_m=R\int_0^t q(s+y)\dd y$ is gamma with mean and variance $m$. Uniformly in $s$, $t=O_{\mathbb P}(m/R)$, $m/(Rt)-q(s)\to0$ and $x-q(s)\to0$ in probability. In particular $\sqrt{m}\,t\to c^{3/2}/q(s)$ in this conditional sense.
+
+For a fixed $(x,t)$, the integrated intensity between $v_\pm-t/2$ and $v_\pm+t/2$ is the same on both branches, because $q$ is even. The joint density of $(x,t)$ with a specified branch is consequently a common factor times
+\[
+ f(v_\pm-t/2)\,q(v_\pm+t/2)/|q'(v_\pm)|.
+\]
+This follows from the density of the $m$th Poisson arrival, using the change of variable $s\mapsto x$ at fixed $t$. Given this branch and $t$, the $n=m-1$ interior times divided by $t$ are the order statistics of independent $U$ on $[0,1]$ with density proportional to $q(v_\pm+t(U-1/2))$. Sorting does not affect their sum. Define
+\[
+ Z_n=\sqrt{12/n}\sum_{j<m}(T_j/t-1/2),\qquad
+ A(x)=c^{3/2}|q'(v_+)|/(\sqrt{12}x^2).
+\]
+For either branch, the single-observation mean of $U-1/2$ is $\beta_\pm=t q'(v_\pm)/(12x)+O(t^2)$ and its variance is $v_t=1/12+O(t)$, uniformly in phase. Conditional on $(x,t)$ and the branch, the $n$ variables $U_j-1/2$ are independent and bounded by $1/2$, with this mean and a variance bounded below. The Berry--Esseen inequality therefore bounds the distance between the conditional distribution function of $\sqrt{12/n}\sum_j(U_j-1/2-\beta_\pm)$ and that of a centred normal with variance $12v_t$ by $C_{\rm BE}/\sqrt n$, with $C_{\rm BE}$ independent of $(x,t)$ and the branch; and $12v_t\to1$ uniformly as $t\to0$. The centring term is $\sqrt{12n}\,\beta_\pm=\pm\sqrt{12n}\,t\,|q'(v_+)|/(12x)+O(\sqrt n\,t^2)$, which converges in probability to $\pm A(x)$ because $\sqrt n\,t\to c^{3/2}/q(s)$, $x-q(s)\to0$ and $\sqrt n\, t^2=o_{\mathbb P}(1)$ at this scaling. Hence, for every bounded continuous $\varphi$, the conditional expectation of $\varphi(Z_n)$ given $(x,t)$ and the branch differs from $\mathbb E\varphi(Z_0\pm A(x))$ by a quantity tending to zero in probability. Integrating over $(x,t)$ and the branch by dominated convergence, the joint law of the midpoint branch, $x$ and $Z_n$ converges to the phase branch and the two coordinates in Eq.~\eqref{eq:criticalchannel}.
+
+For the upper bound, retain $x$ in addition to the record. The log likelihood ratio of the interior observations between the $+$ and $-$ branches is
+\[
+ 2\frac{q'(v_+)}{x}\,t\sum_{j<m}(T_j/t-1/2)+O(nt^3)
+ =2A(x)Z_n+o_{\mathbb P}(1).
+\]
+Indeed the normalising integrals agree by reflection and the even terms cancel in the Taylor expansion of $\log q(v_++y)-\log q(v_+-y)$. At the specified scale $nt^3=o_{\mathbb P}(1)$. For the likelihood ratio between the two \emph{priors} in the augmented record, sum the two branch densities. The endpoint factors $q(v_\pm+t/2)$ tend to the common $x$; the two Jacobians agree. With $\eta(s),\xi(s)$ denoting the phase densities, the augmented log likelihood ratio is consequently equal up to $o_{\mathbb P}(1)$ to
+\[
+ \log\frac{\eta(v_+)e^{2A(x)Z_n}+\eta(v_-)}
+                {\xi(v_+)e^{2A(x)Z_n}+\xi(v_-)} .
+\]
+The exact likelihood ratio is bounded above and below by the extrema of $\eta/\xi$, and the limiting expression has the same bound. This permits passage to expectations. The displayed limit is exactly the log likelihood ratio for $J_c(\eta)$ against $J_c(\xi)$, since the ratio of two unit-normal densities with means $\pm A$ is $e^{2AZ}$. Data processing bounds the unaugmented divergence above by this limit. For the reverse bound the measurable pair $(m/(Rt),Z_n)$ has the same weak limit as $(x,Z_n)$ under each prior. Joint lower semicontinuity completes the argument.
+
+For increasing $c$ the Gaussian observation at smaller $c$ can be simulated from the one at larger $c$ by rescaling and adding independent Gaussian noise. As $c\to\infty$ the sign of $q'$ is identified with probability tending to one away from the two extrema. Together with $q$ it identifies $s$. Data processing and lower semicontinuity give the endpoint value claimed.
+\end{proof}

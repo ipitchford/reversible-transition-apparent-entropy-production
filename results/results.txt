@@ -1,0 +1,71 @@
+Replay of the shipped checks: macOS arm64, uv-managed CPython 3.14.7 (requested 3.12; the interpreter shim resolves to 3.14.7), NumPy 2.3.5, SciPy 1.17.0.
+Every script run as: python3 -I -B -O <script>.py from the code/ directory. Floating-point fields agree with the original 21 Nov run to the printed digits except the last one or two digits of solver output (tolerances in the scripts).
+
+$ python3 -I -B -O verify_certificate.py
+limiting Bernoulli probability gap: 17/600 = 0.0283333333333
+two-arm finite-speed error upper bound: 2563/7437500 = 0.000344605042017
+finite-speed gap lower bound: 1248997/44625000 = 0.0279887282913
+entropy production upper bound: 88/35 = 2.51428571429
+one observed edge, estimator lower bound: 1559993506009/19913906250 = 78.3368911365
+one observed edge, ratio lower bound: 1559993506009/50069250000 = 31.1567180657
+all edges observed, estimator lower bound: 3119987012018/39832018317 = 78.3286196343
+all edges observed, ratio lower bound: 7799967530045/250372686564 = 31.1534282636
+exit=0
+$ python3 -I -B -O verify_lag_bins_exact.py
+R = 10000
+  common lower bound on estimator, evaluated within [2162345/100000, 2162346/100000]
+  common lower bound on ratio, evaluated within [860023/100000, 860024/100000]
+R = 100000
+  common lower bound on estimator, evaluated within [36644498/100000, 36644499/100000]
+  common lower bound on ratio, evaluated within [14574516/100000, 14574517/100000]
+exit=0
+$ python3 -I -B -O verify_moderate_speed.py
+R = 750 complete observation = False certified lower bound interval [2746942/1000000, 2746943/1000000]
+R = 750 complete observation = True certified lower bound interval [2755619/1000000, 2755620/1000000]
+R = 1000 complete observation = False certified lower bound interval [3654098/1000000, 3654099/1000000]
+R = 1000 complete observation = True certified lower bound interval [3661074/1000000, 3661075/1000000]
+exit=0
+$ python3 -I -B -O verify_numerically.py
+Entropy production (integrated flux): 2.51327412287
+Finite-speed validation. Columns are R, forward/reverse race probabilities,
+their one-observed-edge KL rate lower bound, and the same three quantities
+when all physical jumps are observed. KL rates are numerical lower bounds on Eq. 14.
+   100 0.54092930947 0.56935596372 0.081999082193 0.48878679653 0.51451292309 0.073190599952
+  1000 0.55128785773 0.57962213697 0.81912497146 0.54552322342 0.57356173824 0.80793339731
+100000 0.55248781011 0.58082114349 81.963857563 0.5524294964 0.58075983931 81.952321033
+Negative controls. Each forward/reverse probability difference should vanish.
+undriven occupation 0 0
+constant reporter rate -3.33e-16 -1.67e-16
+Exact-limit density slope K_F D(g_F||g_B)/R, quadrature values.
+phase nodes, Laguerre order, Gauss-Laguerre, adaptive, adaptive error estimate
+256 128 0.0040743716672 0.00407070238251 3.6e-15
+1024 256 0.00407069532069 0.00407070238251 3.6e-15
+exit=0
+$ python3 -I -B -O verify_histogram.py
+Thirteen waiting-time bins, including a single overflow bin above R*Twait = 20.
+R, one-edge Eq. 14 lower bound (numerical), ratio to physical entropy
+   100    0.3909986008    0.1555734001
+   500     1.917385211    0.7629033354
+   750     2.881427577     1.146483605
+  1000     3.848693974     1.531346676
+100000     396.1638381     157.6285828
+exit=0
+$ python3 -I -B -O verify_crossover.py
+c, D(J_c(eta) || J_c(xi)), refinement difference
+0.00  0.1669697220  0
+0.25  0.1675368506  6.09e-14
+0.50  0.1687065393  2.41e-15
+1.00  0.1706847399  2.76e-12
+2.00  0.1730851889  2.81e-13
+4.00  0.1746453055  2.08e-14
+8.00  0.1753124445  5.55e-16
+Exact rate-only and full-phase endpoint values: 0.16696972201766402 0.17537887487646786
+exit=0
+$ python3 -I -B -O verify_pumped_current.py
+Reporter bias f, net current J (0->+ per period), sigma, S_1 lower bound (13 lag bins x marks), ratio
+ 0.00  0.000000 2.513274 3.856037 1.5343
+ 0.25  0.162530 2.553907 3.827666 1.4987
+ 0.50  0.320174 2.673361 3.744754 1.4008
+ 1.00  0.604557 3.117831 3.444388 1.1047
+PASS
+exit=0

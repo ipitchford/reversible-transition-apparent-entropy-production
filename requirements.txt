@@ -1,0 +1,4 @@
+# Floating-point illustrations in code/ (the three certificates use the standard library only)
+numpy==2.3.5
+scipy==1.17.0
+# figure.py (redraws figure.pdf) additionally needs matplotlib; it is not needed for any check.

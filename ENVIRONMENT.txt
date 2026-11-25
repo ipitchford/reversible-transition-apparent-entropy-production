@@ -1,0 +1,22 @@
+Release replay environment (25 November 2026, macOS arm64 host)
+Interpreters (printed inside the run, not assumed):
+- `uv run --no-project --python 3.12 --with numpy==2.3.5 --with scipy==1.17.0 python3` built an ephemeral environment
+  on CPython 3.12.11 with NumPy 2.3.5 and SciPy 1.17.0. The four floating-point scripts ran under it.
+- `uv run --no-project --python 3.12 python3` (no extra packages) resolved to CPython 3.14.7 through the host's python3
+  shim; the three standard-library certificates were run under both 3.14.7 and 3.12.11 with identical output.
+Packages: requirements.txt pins numpy==2.3.5 and scipy==1.17.0. verify_certificate.py, verify_lag_bins_exact.py and
+verify_moderate_speed.py use the standard library only. figure.py also needs matplotlib (not used by any check).
+Working directory: code/. Flags: python3 -I -B -O for every script. PYTHONDONTWRITEBYTECODE=1; OMP/OpenBLAS/MKL/vecLib
+threads 1.
+Run time: under 5 seconds for each script except verify_pumped_current.py (about 65 seconds on the release host).
+GitHub CI: ubuntu-latest, actions/setup-python 3.12, pip install -r requirements.txt. Blocking job: manifest, the three
+certificates with exact comparison, the three negative controls, and the quick floating-point scripts with the declared
+tolerance. Non-blocking job: verify_pumped_current.py with the same tolerance.
+Comparison policy (declared before tagging; the same in CI, README.md and REPLAY_RECEIPT.md):
+- The output of verify_certificate.py, verify_lag_bins_exact.py and verify_moderate_speed.py (exact rational and
+  integer-interval arithmetic) must equal its section of results/results.txt exactly on every platform.
+- The output of verify_numerically.py, verify_histogram.py, verify_crossover.py and verify_pumped_current.py
+  (floating point) must match its section token by token: non-numeric tokens exactly, numbers within a relative 1e-6 or
+  an absolute 1e-9. Each script also enforces its own declared tolerance and exits non-zero on failure.
+- Interpreter versions and timings are not compared.
+On the release platform every compared output was identical to the recorded one.

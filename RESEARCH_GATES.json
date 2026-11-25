@@ -1,0 +1,288 @@
+{
+ "schemaVersion": "1.0",
+ "provenance": "Compiled 25 November 2026 for 0.1.0-candidate from the dated searches of the internal AI-assisted review (24 November 2026), the source retrieval and reading record, the corpus overlap check, refs.bib, REVIEW_SUMMARY.md and the paper's own positioning (Sections 1 and 7). It records scrutiny performed, not historical priority.",
+ "contributionMap": [
+  {
+   "claim": "The uncorrected phase-blind waiting-time estimate S_1 of Harunari, Fiore and Barato is not a lower bound on entropy production, and its excess is unbounded (three-state zero-current example; S_1 > 31 sigma by exact rational certificate, > 145 sigma by certified lag bins)",
+   "unit": "statement",
+   "paperLocation": "Theorem 1, Proposition 2, Appendix C",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Harunari-Fiore-Barato (eight citing works, including arXiv 2609.00639, 2608.03619 and the review 2512.07772), arXiv search, general web searches, by the internal review roles; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "waiting-time entropy production periodically driven inequality sigma >= sigma-hat Harunari Fiore Barato counterexample; phase-blind waiting-time estimator time-reversed protocol; block relative entropy dissipation lower bound periodic driving"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv versions and journal records)",
+     "query": "Harunari-Fiore-Barato Eqs. (13), (14), (24)-(26) and Sec. VI; Maier-Deguenther-van der Meer-Seifert forward-only statistic; earlier Evidence Press release body; van der Meer-Ertel-Seifert; Harunari-Dutta-Polettini-Roldan; Skinner-Dunkel; Martinez et al.; snippets; Roldan-Parrondo; Hartich-Godec; Schwarz-Kolomeisky-Godec; Rahav-Horowitz-Jarzynski; Chernyak-Sinitsyn; Mora-Wingreen"
+    }
+   ],
+   "closestPriorWork": "Harunari, Fiore and Barato (2024) Sec. VI (numerics indicating sigma >= sigma-hat in one model); earlier Evidence Press release (waiting-time-entropy-bound-counterexamples) Sec. 6, an uncertified ratio of about 1.10 for the forward-only statistic in a time-symmetric protocol",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "none of the citing works or search results settled sigma >= sigma-hat; the earlier release gave uncertified numerical evidence, credited"
+  },
+  {
+   "claim": "The violation persists under complete observation of all jumps and under a small constant cycle affinity (net current numerical)",
+   "unit": "statement",
+   "paperLocation": "Section 4, Corollary 3",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Harunari-Fiore-Barato (eight citing works, including arXiv 2609.00639, 2608.03619 and the review 2512.07772), arXiv search, general web searches, by the internal review roles; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "waiting-time entropy production periodically driven inequality sigma >= sigma-hat Harunari Fiore Barato counterexample; phase-blind waiting-time estimator time-reversed protocol; block relative entropy dissipation lower bound periodic driving"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv versions and journal records)",
+     "query": "Harunari-Fiore-Barato Eqs. (13), (14), (24)-(26) and Sec. VI; Maier-Deguenther-van der Meer-Seifert forward-only statistic; earlier Evidence Press release body; van der Meer-Ertel-Seifert; Harunari-Dutta-Polettini-Roldan; Skinner-Dunkel; Martinez et al.; snippets; Roldan-Parrondo; Hartich-Godec; Schwarz-Kolomeisky-Godec; Rahav-Horowitz-Jarzynski; Chernyak-Sinitsyn; Mora-Wingreen"
+    }
+   ],
+   "closestPriorWork": "Harunari, Fiore and Barato (2024) pump model; Rahav-Horowitz-Jarzynski and Chernyak-Sinitsyn on stochastic pumps",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "not found; whether HFB's own pump model can overshoot is stated as open"
+  },
+  {
+   "claim": "Block correction 0 <= S_m <= sigma_L + X/m for every finite driven network, safety criterion X = 0, and sharpness of the coefficient in the example",
+   "unit": "statement",
+   "paperLocation": "Theorems 5 and 7, Corollary 6",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Harunari-Fiore-Barato (eight citing works, including arXiv 2609.00639, 2608.03619 and the review 2512.07772), arXiv search, general web searches, by the internal review roles; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "waiting-time entropy production periodically driven inequality sigma >= sigma-hat Harunari Fiore Barato counterexample; phase-blind waiting-time estimator time-reversed protocol; block relative entropy dissipation lower bound periodic driving"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv versions and journal records)",
+     "query": "Harunari-Fiore-Barato Eqs. (13), (14), (24)-(26) and Sec. VI; Maier-Deguenther-van der Meer-Seifert forward-only statistic; earlier Evidence Press release body; van der Meer-Ertel-Seifert; Harunari-Dutta-Polettini-Roldan; Skinner-Dunkel; Martinez et al.; snippets; Roldan-Parrondo; Hartich-Godec; Schwarz-Kolomeisky-Godec; Rahav-Horowitz-Jarzynski; Chernyak-Sinitsyn; Mora-Wingreen"
+    }
+   ],
+   "closestPriorWork": "Harunari, Fiore and Barato (2024) Eq. (26) (the case m = 1); Roldan and Parrondo (2012) block relative entropy",
+   "verdict": "partially-known-cited",
+   "verdictNote": "m = 1 is HFB Eq. (26) and is credited; the block extension, criterion and sharpness were not found"
+  },
+  {
+   "claim": "Scaling regimes of the block estimate in the example, with a phase-recovery transition at m of order R^(2/3)",
+   "unit": "statement",
+   "paperLocation": "Section 6, Appendices A-B",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Harunari-Fiore-Barato (eight citing works, including arXiv 2609.00639, 2608.03619 and the review 2512.07772), arXiv search, general web searches, by the internal review roles; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "waiting-time entropy production periodically driven inequality sigma >= sigma-hat Harunari Fiore Barato counterexample; phase-blind waiting-time estimator time-reversed protocol; block relative entropy dissipation lower bound periodic driving"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv versions and journal records)",
+     "query": "Harunari-Fiore-Barato Eqs. (13), (14), (24)-(26) and Sec. VI; Maier-Deguenther-van der Meer-Seifert forward-only statistic; earlier Evidence Press release body; van der Meer-Ertel-Seifert; Harunari-Dutta-Polettini-Roldan; Skinner-Dunkel; Martinez et al.; snippets; Roldan-Parrondo; Hartich-Godec; Schwarz-Kolomeisky-Godec; Rahav-Horowitz-Jarzynski; Chernyak-Sinitsyn; Mora-Wingreen"
+    }
+   ],
+   "closestPriorWork": "Mora and Wingreen (2010) ramp detection in a Poisson rate (the exponent)",
+   "verdict": "partially-known-cited",
+   "verdictNote": "the exponent is the classical ramp-detection one and is credited; its role here was not found"
+  },
+  {
+   "claim": "Method: a fast reversible reporter transition whose rate varies with the drive phase; reduction of S_1 to a one-bit deadline race with Pinsker and a frozen-race coupling, exact rational certificates (pi < 22/7), weighted lag-bin variational bounds and a validated Fourier-Taylor enclosure",
+   "unit": "method",
+   "paperLocation": "Sections 3-4, Appendix C",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Harunari-Fiore-Barato (eight citing works, including arXiv 2609.00639, 2608.03619 and the review 2512.07772), arXiv search, general web searches, by the internal review roles; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "waiting-time entropy production periodically driven inequality sigma >= sigma-hat Harunari Fiore Barato counterexample; phase-blind waiting-time estimator time-reversed protocol; block relative entropy dissipation lower bound periodic driving"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv versions and journal records)",
+     "query": "Harunari-Fiore-Barato Eqs. (13), (14), (24)-(26) and Sec. VI; Maier-Deguenther-van der Meer-Seifert forward-only statistic; earlier Evidence Press release body; van der Meer-Ertel-Seifert; Harunari-Dutta-Polettini-Roldan; Skinner-Dunkel; Martinez et al.; snippets; Roldan-Parrondo; Hartich-Godec; Schwarz-Kolomeisky-Godec; Rahav-Horowitz-Jarzynski; Chernyak-Sinitsyn; Mora-Wingreen"
+    }
+   ],
+   "closestPriorWork": "Variational lower bounds on relative entropy; waiting-time estimators in steady states (van der Meer et al., Skinner-Dunkel, Harunari et al.)",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "the reporter construction and the certificate chain were not found"
+  }
+ ],
+ "sourcesReadInFull": [
+  {
+   "citation": "Harunari, P. E., Fiore, C. E. and Barato, A. C. (2024), Inference of entropy production for periodically driven systems, Phys. Rev. E 110, 064126 (arXiv:2406.12792)",
+   "usedFor": "the estimator, the corrected inequality, X, sigma_L, Sec. VI remarks",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevE.110.064126"
+  },
+  {
+   "citation": "Maier, A. M., Deguenther, J., van der Meer, J. and Seifert, U. (2024), J. Stat. Phys. 191, 104 (arXiv:2406.12657)",
+   "usedFor": "forward-only statistic, phase-resolved bounds",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1007/s10955-024-03315-7"
+  },
+  {
+   "citation": "Anonymous (2026), Counterexamples to a conjectured waiting-time bound on entropy production in periodically driven Markov networks, Evidence Press, Zenodo",
+   "usedFor": "predecessor release; its Sec. 6 numerics and unaffected list",
+   "readWhat": "release body and paper",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.5281/zenodo.23541298"
+  },
+  {
+   "citation": "van der Meer, J., Ertel, B. and Seifert, U. (2022), Phys. Rev. X 12, 031025 (arXiv:2203.12020)",
+   "usedFor": "waiting-time inference in steady states",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevX.12.031025"
+  },
+  {
+   "citation": "Harunari, P. E., Dutta, A., Polettini, M. and Roldan, E. (2022), Phys. Rev. X 12, 041026 (arXiv:2203.07427)",
+   "usedFor": "visible-transition statistics",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevX.12.041026"
+  },
+  {
+   "citation": "Skinner, D. J. and Dunkel, J. (2021), Phys. Rev. Lett. 127, 198101 (arXiv:2105.08681)",
+   "usedFor": "waiting-time entropy estimation",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevLett.127.198101"
+  },
+  {
+   "citation": "Martinez, I. A., Bisker, G., Horowitz, J. M. and Parrondo, J. M. R. (2019), Nat. Commun. 10, 3542 (arXiv:1809.02084)",
+   "usedFor": "broken detailed balance without currents",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1038/s41467-019-11051-w"
+  },
+  {
+   "citation": "van der Meer, J., Deguenther, J. and Seifert, U. (2023), Phys. Rev. Lett. 130, 257101 (arXiv:2211.17032)",
+   "usedFor": "snippet statistics",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevLett.130.257101"
+  },
+  {
+   "citation": "Roldan, E. and Parrondo, J. M. R. (2012), Phys. Rev. E 85, 031129 (arXiv:1201.5613)",
+   "usedFor": "block relative entropy",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevE.85.031129"
+  },
+  {
+   "citation": "Hartich, D. and Godec, A. (2021), Phys. Rev. X 11, 041047 (arXiv:2011.04628)",
+   "usedFor": "kinetic hysteresis and memory",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevX.11.041047"
+  },
+  {
+   "citation": "Schwarz, T., Kolomeisky, A. B. and Godec, A. (2026), Phys. Rev. Lett. 137, 187401 (arXiv:2410.11819)",
+   "usedFor": "time reversal with memory",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/gwf7-6kvr"
+  },
+  {
+   "citation": "Rahav, S., Horowitz, J. and Jarzynski, C. (2008), Phys. Rev. Lett. 101, 140602 (arXiv:0808.0015)",
+   "usedFor": "stochastic pumps, zero integrated current",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevLett.101.140602"
+  },
+  {
+   "citation": "Chernyak, V. Y. and Sinitsyn, N. A. (2008), Phys. Rev. Lett. 101, 160601 (arXiv:0808.0205)",
+   "usedFor": "pumping restriction theorem",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevLett.101.160601"
+  },
+  {
+   "citation": "Mora, T. and Wingreen, N. S. (2010), Phys. Rev. Lett. 104, 248101 (arXiv:1002.3907)",
+   "usedFor": "ramp detection exponent",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1103/PhysRevLett.104.248101"
+  }
+ ],
+ "limitationTriage": [
+  {
+   "limitation": "Whether S_1 <= sigma holds throughout HFB's own three-state pump model",
+   "closingQuestion": "Can the overshoot occur in their model family?",
+   "triedOrSearched": "not scanned (would need re-implementing their model); stated as open in Section 3",
+   "estimatedCost": "days",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 3 after Corollary 3",
+   "whyNotClosedNow": "out of scope of one revision round"
+  },
+  {
+   "limitation": "Certificate scripts relied on assert",
+   "closingQuestion": "Do the checks fail on a corrupted claim under python -O?",
+   "triedOrSearched": "all asserts replaced by explicit failures; three negative controls exit 1 under -O in the lead replay, the release replay and CI",
+   "estimatedCost": "minutes",
+   "cheap": true,
+   "decision": "CLOSED",
+   "reasonOpen": "",
+   "whyNotClosedNow": ""
+  },
+  {
+   "limitation": "Corollary 3 threshold",
+   "closingQuestion": "For which R does the analytic bound exceed sigma?",
+   "triedOrSearched": "proof audit found the original threshold too low; corrected to R >= 5400, checked in exact rationals (2.60 > 88/35)",
+   "estimatedCost": "minutes",
+   "cheap": true,
+   "decision": "CLOSED",
+   "reasonOpen": "",
+   "whyNotClosedNow": ""
+  },
+  {
+   "limitation": "Net current under a cycle affinity is numerical",
+   "closingQuestion": "Is the mean current nonzero for small f != 0?",
+   "triedOrSearched": "floating-point table with two phase meshes agreeing to relative 1e-5; a perturbative proof of J'(0) != 0 was suggested and not attempted",
+   "estimatedCost": "hours",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "stated as numerical in the abstract, introduction and Section 7",
+   "whyNotClosedNow": "optional strengthening; the main claims do not depend on it"
+  },
+  {
+   "limitation": "Finite-sample estimation not analysed",
+   "closingQuestion": "How many events does a reliable estimate need?",
+   "triedOrSearched": "Limits paragraph of Section 7 (plug-in bias, variational bounds)",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 7 Limits",
+   "whyNotClosedNow": "out of scope"
+  },
+  {
+   "limitation": "Novelty rests on searches of limited scope",
+   "closingQuestion": "Would further indexes change attribution?",
+   "triedOrSearched": "Semantic Scholar citing works, arXiv and web searches, cited sources read, Evidence Press corpus checked",
+   "estimatedCost": "subscription indexes",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "subscription indexes were outside the searched corpus",
+   "whyNotClosedNow": "recorded here; the paper positions its results against the sources read"
+  }
+ ],
+ "extensionScout": {
+  "by": "five internal reviewer roles, the re-reviewer, the proof auditor and the lead",
+  "date": "2026-11-24",
+  "proposals": [
+   "current-carrying variant",
+   "sufficient condition for safety of the uncorrected estimate",
+   "put the factor-145 certificate in the paper",
+   "scan of HFB's own pump model",
+   "perturbative proof of a nonzero current",
+   "finite-sample study"
+  ],
+  "actions": [
+   "done: Corollary 3 and the pumped-current table",
+   "done: Corollary 6",
+   "done: Proposition 2 and Appendix C",
+   "not done: stated as open",
+   "not done: current reported as numerical",
+   "not done: stated as a limit"
+  ]
+ }
+}

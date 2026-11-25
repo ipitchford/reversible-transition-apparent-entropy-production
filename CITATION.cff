@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using these metadata."
+type: software
+title: "How a reversible transition amplifies apparent entropy production"
+abstract: "Unrefereed research candidate. Harunari, Fiore and Barato proposed estimating the entropy production of a periodically driven system from waiting-time histograms recorded with the driving protocol and with the protocol reversed, without recording the phase. They proved that the estimate minus a correction X is a lower bound and left open whether the uncorrected estimate is one. It is not, and its excess is unbounded: in a three-state model with zero period-averaged currents and fixed entropy production 4 pi/5, the estimate grows linearly with the rate of a reversible transition; exact rational certificates give more than 31 and, with lag bins, more than 145 times the entropy production. For any finite driven network, blocks of m waits overshoot the phase-resolved bound by at most X/m, and the coefficient cannot be lowered. Harunari, Fiore and Barato's corrected inequality remains valid."
+authors:
+  - name: "Anonymous"
+version: "0.1.0-candidate"
+date-released: "2026-11-25"
+doi: "10.5281/zenodo.24529102"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24529102"
+    description: "This version"
+  - type: doi
+    value: "10.5281/zenodo.24529101"
+    description: "All versions (concept DOI)"
+repository-code: "https://github.com/ipitchford/reversible-transition-apparent-entropy-production"
+url: "https://evidencepress.org/releases/reversible-transition-apparent-entropy-production/"
+license: CC0-1.0
+keywords:
+  - entropy production
+  - waiting times
+  - periodically driven systems
+  - stochastic thermodynamics
+  - thermodynamic inference
+preferred-citation:
+  type: article
+  title: "How a reversible transition amplifies apparent entropy production"
+  authors:
+    - name: "Anonymous"
+  year: 2026
+  doi: "10.5281/zenodo.24529102"
+  publisher:
+    name: "Zenodo"
+  notes: "Version 0.1.0-candidate; unrefereed"

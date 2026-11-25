@@ -1,0 +1,35 @@
+\subsection{Reduction to a Poisson observation of the phase}
+Put $\eta(ds)=2p_\F(s)q(s)\dd s$ and $\xi(ds)=2p_\B(-s)q(s)\dd s$.
+Let $A_s$ generate $m$ successive arrival times of an inhomogeneous Poisson process of intensity $Rq(s+t)$, starting at time zero. For a prior $u$, write $uA=\int u(ds)A_s$. Arrival times and successive lags determine each other.
+\begin{lemma}\label{lem:reduction}
+If $m=o(R)$, then
+\[
+ \KL(P_m^\F\|\Theta P_m^\B)=\KL(\eta A\|\xi A)+o(1).
+\]
+\end{lemma}
+\begin{proof}
+Let $z=(s,i)$ be the initial phase and mark of an oriented block. Write $L_z$ for the forward conditional block law and $H_z$ for the conditional law under the reversal of a backward block given this same $z$. The latter conditions the original backward block on its \emph{last} phase and mark being $(-s,\bar i)$. The two priors $u=\mu_\F$, $v=\Theta\mu_\B$ have phase marginals $\eta,\xi$, respectively, and independent uniform marks. Their density ratio lies in $[c,C]$ for fixed $0<c<C<\infty$. By the chain rule and Eq.~\eqref{eq:full},
+\[
+ \int u(\dd z)\KL(L_z\|H_z)=m\sigma_{\mathcal L}/K_\F=o(1).
+\]
+Write $P=uL$, $Q=vH$, $Q'=vL$ for mixtures on observed blocks. Convexity gives $\KL(Q'\|Q)\le c^{-1}\int u\KL(L_z\|H_z)=o(1)$. Also $P\le C Q'$. Thus
+\[
+ |\KL(P\|Q)-\KL(P\|Q')|\le C\left[\KL(Q'\|Q)+2\|Q'-Q\|_{\rm TV}\right]=o(1).
+\]
+Indeed, the negative part of $\log(dQ'/dQ)$ has integral under $Q'$ at most $\|Q'-Q\|_{\rm TV}$ by $\log x\le x-1$; Pinsker's inequality bounds the total variation.
+
+Couple $L_z$ to $A_s$ with alternating directions starting at $i$. They agree until the first slow exit. Its probability before the $m$th Poisson arrival is at most $\|b\|_\infty m/(R\min q)$. The two mixtures $P,Q'$ therefore each change by $o(1)$ in total variation on replacing their kernels. Before and after replacement their likelihood ratios lie in $[c,C]$. On this cone $a\log(a/b)$ has bounded first derivatives in $(a,b)$ and extends continuously to the origin, so total variation convergence changes their relative entropy by $o(1)$ (use any common dominating measure). The independent initial direction and deterministic alternation can now be dropped, giving the assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:subcritical}
+If $m\to\infty$ and $m=o(R^{2/3})$, the block divergence tends to
+\[
+ D_q=\KL(q_*\eta\|q_*\xi)=2\big(1-\sqrt{21}/5\big)<1-\sqrt{17}/5 .
+\]
+Here $q_*u$ denotes the distribution of $q(s)$ under $u$.
+\end{corollary}
+\begin{proof}
+Freeze $A_s$ at rate $Rq(s)$. The KL divergence of the frozen process from the varying process up to its $m$th jump is $O(R\mathbb E T_m^3)=O(m^3/R^2)$ uniformly in $s$. To see this, the stopped Poisson likelihood gives the expectation under the frozen law of the integral through $T_m$ of $R[q(s)\log(q(s)/q(s+t))-q(s)+q(s+t)]$. The integrand is bounded by $C'Rt^2$ by positivity and Lipschitz continuity of $q$, and $Rq(s)T_m$ is gamma with shape $m$ and unit rate. Pinsker and the bounded-ratio argument in the lemma allow replacement by the frozen kernels. Their dependence only on $q(s)$ gives the relative-entropy upper bound $D_q$. The statistic $m/(R T_m)$ converges in probability to $q(s)$ uniformly in $s$, so data processing and lower semicontinuity give the matching lower bound.
+
+For the explicit value, given $q$ the two signs of $\sin\theta$ are equiprobable under uniform phase. Averaging the two priors over the signs leaves the common factor $q$ and the factors $1\mp(h/2)\cos 2\theta$, respectively. In the divergence integral the first harmonic in $q$ vanishes. The remainder is the divergence between sinusoidal densities of amplitude $h/2$ and phase separation $\pi$, as evaluated in Eq.~\eqref{eq:xvalue}.
+\end{proof}

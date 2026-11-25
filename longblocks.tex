@@ -1,0 +1,29 @@
+\begin{corollary}\label{cor:longwindow}
+For the single-edge observation of Theorem~\ref{th:finite}, if $R\to\infty$ and $m/R\to\infty$ then $S_m\to\sigma=4\pi/5$.
+\end{corollary}
+\begin{proof}
+The upper bound follows from Eq.~\eqref{eq:upper}. For the lower bound fix $\gamma>0$, put $n=\lfloor\gamma R\rfloor$, and consider the $n$-gap block of Theorem~\ref{th:macro}. Use its full laws $P^*,Q^*$, log likelihood $L$ in Eq.~\eqref{eq:macro-action}, and observed estimator $\widehat L$. At a fixed clipping level $M>0$, set $H=[\widehat L]_M$.
+
+As in the proof of Theorem~\ref{th:macro}, write $z=(s,i)$ for the starting phase and directed mark in the orientation of the record, and use the reversed microscopic chain with rates $k^{\rm rev}$ defined there; under $Q^*$ the record is generated, given $z$, by that chain.
+
+The reconstruction in Theorem~\ref{th:macro} therefore works conditionally on $z$, uniformly in $z$, in both orientations. Indeed, the first $2\lfloor R^{3/4}\rfloor$ gaps couple to the Poisson reporter of intensity $Rq(s+t)$ with failure probability $O(R^{-1/4})$ uniformly, and the phase estimator in Theorem~\ref{th:sharp} has uniform error in probability. Under either microscopic orientation, the counting intensity is $Rq(s+t)A(t)$, so the same stopped compensation up to the $n$th report has conditional mean-square error at most $n\|B'/q\|_\infty^2/R^2$. Replacing phase by its estimate in the sum costs a constant times $(n/R)$ times its circular error. Thus $H-[L]_M\to0$ in conditional probability uniformly. Boundedness gives the corresponding uniform convergence of the expectations of their exponentials.
+
+The full likelihood also satisfies
+\[
+ \mathbb E_{Q^*}(e^L\mid z)
+   =\frac{\dd\mu_\F}{\dd(\Theta\mu_\B)}(z)\le C_0
+\]
+for a constant $C_0$ independent of $R,n$. Since $e^{[L]_M}\le e^L+e^{-M}$, we obtain $\sup_z\mathbb E_{Q^*}(e^H\mid z)\le C_0+e^{-M}+o_R(1)$ for fixed $\gamma,M$.
+
+Partition the first $n\ell$ gaps into $\ell=\lfloor m/n\rfloor$ consecutive subblocks, discarding the remainder. Given the microscopic past through the initial reporter event of a subblock, the strong Markov property of the phase-augmented reversed chain gives the same bound for its conditional exponential moment. Iteration bounds $\mathbb E_{Q^*}\exp(\sum_{j=1}^\ell H_j)$ by $(C_0+e^{-M}+o_R(1))^\ell$. The single-block error bound is independent of $\ell$. By stationarity in the forward event index and the variational inequality for observed relative entropy,
+\[
+ S_m\ \ge\ \frac{R\ell}{2m}
+  \left\{\mathbb E_{P^*}H-\log(C_0+e^{-M}+o_R(1))\right\}.
+\]
+First take the lower limit in $R$ with $m/R\to\infty$, so the prefactor tends to $1/(2\gamma)$. Then send $M\to\infty$. The uniform integrability in Theorem~\ref{th:macro} and Eq.~\eqref{eq:macro-joint} give
+\[
+ \liminf S_m\ge\sigma+
+ \big[1-\sqrt{17}/5-\log C_0\big]/(2\gamma).
+\]
+Finally let $\gamma\to\infty$.
+\end{proof}

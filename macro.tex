@@ -1,0 +1,55 @@
+\section{Blocks lasting a finite fraction of a period}\label{sec:macro}
+When the number of events in a block is comparable to the activity, the record extends over a non-vanishing physical time. The fast reporter then reveals when the slow gate is open. This gives the exact value of the remaining excess in the three-state family.
+
+\begin{theorem}\label{th:macro}
+For the single-edge observation of Theorem~\ref{th:finite}, if $R\to\infty$ and $m/R\to\alpha$ with $0<\alpha<\infty$, then
+\[
+ S_m\ \longrightarrow\ \frac{4\pi}{5}+\frac{1-\sqrt{17}/5}{2\alpha}.
+\]
+\end{theorem}
+
+\begin{proof}
+Let $s$ denote the phase of the initial reporter event, $t_0=0<t_1<\cdots<t_m=T_m$ the reporter times within the block, and $A(v)\in\{0,1\}$ the indicator that the system occupies a twin at elapsed time $v$. Write $B(s)=\log[a(s)/b(s)]$; this $B(s)$ denotes a function, distinct from the backward-experiment subscript $\B$. Retain the phase and all microscopic jumps in the block. Denote the resulting forward and reversed backward path laws by $P^*$ and $Q^*$.
+
+The log density ratio $L=\log(\dd P^*/\dd Q^*)$ is
+\begin{equation}
+ L=\log\frac{p_\F(s)}{p_\B(-s-T_m)}
+       +B(s+T_m)-B(s)-\int_0^{T_m} A(v)B'(s+v)\dd v .
+ \label{eq:macro-action}
+\end{equation}
+Indeed, the holding-time survival factors agree along a path and its reverse under the reversed drive. The reporter jump factors cancel, including the initial reporter intensity in the event-sampled law and the terminal jump density. Each jump into or out of a twin contributes $(B(s+v)-\log 2)\Delta A(v)$. The block starts and ends with $A=1$, so summation by parts gives Eq.~\eqref{eq:macro-action}. The mark probabilities and activities agree between experiments. Reversal of a fixed-event-count block interchanges its endpoints with unit absolute Jacobian.
+
+The terminal phase has the same forward marginal as the initial phase. The boundary terms in $B$ therefore have mean zero, and the mean log occupation ratio is $X/K_\F$ by Eq.~\eqref{eq:xvalue}. For one typical reporter interval the mean integrated value of $A B'$ is $\av{p_\F B'}/K_\F$: summing over consecutive reporter intervals partitions physical time. Event-index stationarity multiplies this expectation by $m$. Since $-\av{p_\F B'}=\av{p'_\F B}=\sigma$, we have
+\begin{equation}
+ {\mathbb E}_{P^*}L=X/K_\F+(m/K_\F)\sigma .
+ \label{eq:macro-joint}
+\end{equation}
+
+We now recover $L$ to accuracy $o_{\mathbb P}(1)$ using recorded waiting times alone, under both laws. Use the first $2k$ waits with $k=\lfloor R^{3/4}\rfloor$ to estimate $s$ by the construction of Theorem~\ref{th:sharp}. More explicitly, project its two measured coordinates onto the compact phase curve $g$ and invert $g$, breaking ties measurably. Uniform continuity of that inverse gives a consistent phase $\widehat s$ under $P^*$.
+
+To treat $Q^*$ in the same way, describe it in the orientation of the record. Write $z=(s,i)$ for the starting phase and directed mark of the record; under $Q^*$ these are the reflected phase and reversed mark of the \emph{terminal} event of a backward block, so $z\sim\Theta\mu_\B$. Conditioning the backward process in its periodic state over an infinitesimal time step shows that, run in this orientation, the microscopic path is a Markov chain with rates
+\[
+ k_{xy}^{\rm rev}(s)=
+ k_{yx}^{\B}(-s)\,\pi_{\B,y}(-s)/\pi_{\B,x}(-s).
+\]
+Its reporter has rate $Rq(s)$ in either direction, by twin symmetry and evenness of $q$; its slow rates have finite positive bounds independent of $R$; and a directed event again fixes the post-jump state. Under $Q^*$ the record is therefore generated, given $z$, by a chain whose reporter count has stochastic intensity $Rq(s+v)A(v)$, exactly as under $P^*$. In particular the first $2k$ waits couple to the Poisson reporter of intensity $Rq(s+t)$ with failure probability $O(k/R)$ uniformly in $z$, and $\widehat s$ is consistent under $Q^*$ as well.
+
+Let $b_*(s)=B'(s)/q(s)$. The reported count $N(v)$ has forward stochastic intensity $Rq(s+v)A(v)$. Optional compensation up to its $m$th jump gives
+\[
+ \frac1R\sum_{j=1}^m b_*(s+t_j)
+  -\int_0^{T_m} A(v)B'(s+v)\dd v
+  \ \longrightarrow\ 0\quad\text{in }L^2(P^*).
+\]
+In fact the mean square is at most $m\|b_*\|_\infty^2/R^2$, by the compensated counting-process isometry. Because the reporter count has the same stochastic intensity $Rq(s+v)A(v)$ under the reversed chain that generates $Q^*$, the same compensation argument gives the same mean-square bound in $L^2(Q^*)$. The smooth periodic functions in the endpoint terms are uniformly Lipschitz. In the count sum replacing $s$ by $\widehat s$ costs at most $(m/R)\|b_*'\|_\infty$ times the phase error. These estimates give an observable $\widehat L$ with $\widehat L-L\to0$ in probability under both $P^*$ and $Q^*$.
+
+For completeness, $T_m$ has uniformly bounded second moments when $m/R$ is bounded. Conditional on the gate path, the reporter count is Poisson at cumulative intensity $R\int qA$. The optical exposure needed for $m$ reports is therefore $Y=G_m/R$, with $G_m$ gamma of unit rate and shape $m$ independent of the gate. The active time is at most $Y/\min q$. On that active-time clock, the number of exits is dominated by a Poisson proposal count at rate $\max b$. Each resulting idle interval is dominated by an independent exponential variable of rate $\min a$, using a baseline clock for re-entry. This bounds $T_m$ by $Y/\min q$ plus a compound Poisson sum with parameter $(\max b)Y/\min q$. Its second moment is bounded by a fixed multiple of $1+\mathbb E Y^2$. In particular Eq.~\eqref{eq:macro-action} makes $L$ uniformly integrable under $P^*$.
+
+Write $[z]_M=\max(-M,\min(z,M))$ for clipping. The variational formula for relative entropy, applied to the observable $[\widehat L]_M$, bounds the observed divergence below by
+\[
+ {\mathbb E}_{P^*}[\widehat L]_M
+       -\log {\mathbb E}_{Q^*}e^{[\widehat L]_M}.
+\]
+For fixed $M$, both expectations change by $o(1)$ on replacing $\widehat L$ by $L$. The second is then at most $1+e^{-M}$ because $\mathbb E_{Q^*}e^L=1$. The difference between the first and $\mathbb E_{P^*}L$ goes uniformly to zero as $M\to\infty$. Data processing gives the opposite upper bound $\mathbb E_{P^*} L$. Thus the observed block divergence equals Eq.~\eqref{eq:macro-joint} up to $o(1)$. Finally $K_\F=R/2$, the mark divergence in Eq.~\eqref{eq:block} vanishes, and Eq.~\eqref{eq:xvalue} gives the stated limit.
+\end{proof}
+
+For this family the phase-resolved one-edge rate also tends to the true rate. Along any finite positive limit $m/R\to\alpha$, subtracting $X/m$ from Theorem~\ref{th:macro} gives a limit of $\sigma$. Equation~\eqref{eq:upper} places $\sigma_{\cal L}$ between this lower bound and $\sigma$.

@@ -1,0 +1,77 @@
+# SPDX-License-Identifier: MIT
+name: Replay
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+jobs:
+  verify:
+    name: Manifest; certificates under python -O with exact comparison; negative controls; quick numerics (blocking)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check MANIFEST.sha256
+        run: sha256sum -c MANIFEST.sha256
+      - name: Install pinned dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Run the checks in a copy of the package (cwd = code/)
+        run: |
+          python3 -c 'import sys, numpy, scipy; print(sys.version, numpy.__version__, scipy.__version__)'
+          for d in run neg1 neg2 neg3; do mkdir -p "$RUNNER_TEMP/$d"; cp -R code results "$RUNNER_TEMP/$d/"; done
+          cd "$RUNNER_TEMP/run/code"
+          for s in verify_certificate verify_lag_bins_exact verify_moderate_speed verify_numerically verify_histogram verify_crossover; do
+            python3 -I -B -O "$s.py" > "$s.out"; cat "$s.out"
+          done
+      - name: Compare with the recorded results
+        # The three certificates (exact rational and integer-interval arithmetic) must match results/results.txt
+        # exactly. Floating-point scripts: non-numeric tokens exactly, numbers within relative 1e-6 or absolute 1e-9
+        # (declared tolerance, also in README.md, ENVIRONMENT.txt and REPLAY_RECEIPT.md). Interpreter versions are
+        # not compared.
+        run: python3 -I .github/ci/compare_results.py results/results.txt "$RUNNER_TEMP/run/code" verify_certificate verify_lag_bins_exact verify_moderate_speed verify_numerically verify_histogram verify_crossover
+      - name: Negative controls under -O
+        run: |
+          cd "$RUNNER_TEMP/neg1/code"
+          sed -i 's/^    reporter_speed = 100_000$/    reporter_speed = 1000/' verify_certificate.py
+          grep -q '^    reporter_speed = 1000$' verify_certificate.py
+          if python3 -I -B -O verify_certificate.py > out.txt 2>&1; then echo "vacuous rate not detected"; exit 1; fi
+          grep -q 'CHECK FAILED' out.txt
+          cd "$RUNNER_TEMP/neg2/code"
+          sed -i 's/^WEIGHTS = tuple(F(x, 100) for x in (90, 94, 101, 114, 132, 132, 103, 77, 56))$/WEIGHTS = tuple(F(x, 100) for x in (99, 99, 100, 100, 101, 101, 100, 99, 99))/' verify_lag_bins_exact.py
+          grep -q '(99, 99, 100, 100, 101, 101, 100, 99, 99)' verify_lag_bins_exact.py
+          if python3 -I -B -O verify_lag_bins_exact.py > out.txt 2>&1; then echo "near-flat weights not detected"; exit 1; fi
+          grep -q 'CHECK FAILED' out.txt
+          cd "$RUNNER_TEMP/neg3/code"
+          sed -i 's/^WEIGHTS = tuple(F(n, 100) for n in (90,94,99,104,111,121,132,136,121,90,67))$/WEIGHTS = tuple(F(n, 100) for n in (100,100,100,100,100,100,100,100,100,100,100))/' verify_moderate_speed.py
+          grep -q '(100,100,100,100,100,100,100,100,100,100,100)' verify_moderate_speed.py
+          if python3 -I -B -O verify_moderate_speed.py > out.txt 2>&1; then echo "flat weights not detected"; exit 1; fi
+          grep -q 'CHECK FAILED' out.txt
+          echo "three negative controls detected"
+      - name: Working tree unchanged
+        run: test -z "$(git status --porcelain)"
+  pumped-current:
+    name: Pumped-current table (slower, non-blocking; same tolerance)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Run verify_pumped_current.py and compare with results/results.txt
+        run: |
+          mkdir -p "$RUNNER_TEMP/pc" && cp -R code "$RUNNER_TEMP/pc/"
+          cd "$RUNNER_TEMP/pc/code"
+          python3 -I -B -O verify_pumped_current.py > verify_pumped_current.out; cat verify_pumped_current.out
+          python3 -I "$GITHUB_WORKSPACE/.github/ci/compare_results.py" "$GITHUB_WORKSPACE/results/results.txt" . verify_pumped_current
